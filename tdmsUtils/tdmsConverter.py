@@ -33,7 +33,7 @@ class tdmsConverter:
         s = s.split("/")
         return s[2]
 
-    def convertToList(self, data_files, debug = False):
+    def convertToDf(self, data_files, debug = False):
         '''This function convert the content of the Files
         into a list. Each element of the list is a pandas
         dataframe with two columns: x,y.
@@ -87,6 +87,18 @@ class tdmsConverter:
         return df, df.shape[0]
 
     def averageFiles(self, df, debug = False):
+        '''This function evaluate the average of all channels for all files.
+
+        Input parameters:
+        df: dataframe with all the files as obtained by the function
+        convertToDf() in this package.
+
+        Return Values:
+        A DataFrame that contains as many records as number of files. The
+        Dataframe contains two columns: 'filemname' that contains the name
+        of the file with the path, and 'average' that contains a pandas
+        dataframe with two columns 'x' and 'y'.
+    '''
 
         # Let's create an empty pandas datraframe for the result
         df_return = pd.DataFrame()
