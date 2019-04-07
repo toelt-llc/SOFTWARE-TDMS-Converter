@@ -3,6 +3,14 @@ import pandas as pd
 from nptdms import TdmsFile
 import os
 
+#####################################################
+# Author: Umberto Michelucci
+# umberto.michelucci@toelt.ai
+# (C) 2019
+#
+# www.toelt.ai
+#####################################################
+
 
 class tdmsConverter:
     def __init__(self, path):
