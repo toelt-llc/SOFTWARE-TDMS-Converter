@@ -29,7 +29,7 @@ In the ```df``` pandas dataframe you will find all the measurements. An example 
 For example to extract the x and y from the first channel (record in the dataframe) you could do something like this
     
     x = df.iloc[0]['data']['x']
-    y = df.iloc[i]['average']['y']
+    y = df.iloc[0]['data']['y']
 
 or if you want to plot the average of all channels for each file you can do the following
 
