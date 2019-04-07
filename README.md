@@ -19,7 +19,7 @@ The package can be easily used. An example of usage is
     
 In the ```df``` pandas dataframe you will find all the measurements. An example of how it looks like is
 
-        data                     	groupName	channelName	                    filename
+        data                     	        groupName	channelName	                filename
     0	x y 0 0.970000 -2.358...	PD_Signal_0	Avg_Data_20190405 09:28:53.72	./ExampleData/0_cold_next_day.tdms
     0	x y 0 0.970000 -2.359...	PD_Signal_0	Avg_Data_20190405 09:29:08.93	./ExampleData/0_cold_next_day.tdms
     0	x y 0 0.970000 -2.359...	PD_Signal_0	Avg_Data_20190405 09:29:24.14	./ExampleData/0_cold_next_day.tdms
