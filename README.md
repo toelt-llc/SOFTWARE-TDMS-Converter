@@ -3,10 +3,10 @@ This repository contains the code for a package that converts TDMS files into pa
 
 ## Help
 
-You can always get the up to date documentation with
+You can always get the up-to-date documentation with
 
-from tdmsUtils import tdmsConverter as tdmsc
-help(tdmsc)
+    from tdmsUtils import tdmsConverter as tdmsc
+    help(tdmsc)
 
 ## Example usage
 
