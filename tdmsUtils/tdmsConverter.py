@@ -28,12 +28,35 @@ class tdmsConverter:
         return data_files
 
     def getChannelName(self, channelName):
+        '''This is a helper function that from the output of the
+        tdms package for the channel name like
+
+        <TdmsObject with path /'PD_Signal_0'/'Avg_Data_20190404 15:30:45.93'>
+
+        extract the actual channel name. In this case
+
+        Avg_Data_20190404 15:30:45.93
+
+        Input Parameters:
+        channelName: a channelName as returned, for example, from a loop
+        like This
+
+        for channel in tdms_file.group_channels(group):
+            ......
+
+        Return Value:
+        a string with the channel name, that can be used in the function
+
+        tdms_file.object(str(group), channelName).data'''
+
+
+
         s = str(channelName).replace("'", "")
         s = s.replace(">", "")
         s = s.split("/")
         return s[2]
 
-    def convertToDf(self, data_files, debug = False):
+    def convertToDf(self, debug = False):
         '''This function convert the content of the Files
         into a list. Each element of the list is a pandas
         dataframe with two columns: x,y.
@@ -51,6 +74,8 @@ class tdmsConverter:
         2. the number of channels as integer.'''
 
         df = pd.DataFrame()
+
+        data_files = [x for x in os.listdir(self.path) if x.endswith(".tdms")]
 
         for filename in data_files:
             tdms_file = TdmsFile(self.path+'/'+filename)
