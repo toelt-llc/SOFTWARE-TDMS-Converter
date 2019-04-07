@@ -86,26 +86,36 @@ class tdmsConverter:
 
         return df, df.shape[0]
 
-    def averageFiles(self, df):
+    def averageFiles(self, df, debug = False):
 
         # Let's create an empty pandas datraframe for the result
         df_return = pd.DataFrame()
 
         for filename in df['filename'].unique():
-            print ("Averaging ", filename)
+            if (debug):
+                print ("Averaging ", filename)
 
             df_tmp = df[df['filename'] == filename]
-            nr_channels = df_tmp.iloc[0]['data'].shape[1]
+
+            # Let's get some information from the dfs
+            nr_channels = df_tmp.shape[0]
             nr_points = df_tmp.iloc[0]['data'].shape[0]
 
-            df_tmp_avg = np.zeros(nr_points)
-            for index, df_ in df_tmp.iterrows():
-                df_tmp_avg = df_tmp_avg+df_['data']['y'] / nr_channels
+            if (debug):
+                print("Number of channels ", nr_channels)
+                print("Number of points   ", nr_points)
 
+            tmp_avg = np.zeros(nr_points)
+            for index, df_ in df_tmp.iterrows():
+                tmp_avg = tmp_avg+df_['data']['y'] / nr_channels
+                # Note that this is still a numpy array
+
+            df_tmp_avg = pd.DataFrame({'x': df_tmp.iloc[0]['data']['x'],
+                                       'y': tmp_avg})
 
             df_tmp_ = pd.DataFrame({'filename': [filename],
                                    'average': [df_tmp_avg]})
-            print(df_tmp_.head())
+            #print(df_tmp_.head())
 
 
             df_return = df_return.append(df_tmp_)
