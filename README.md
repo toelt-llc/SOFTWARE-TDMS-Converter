@@ -8,6 +8,26 @@ You can always get the up to date documentation with
 from tdmsUtils import tdmsConverter as tdmsc
 help(tdmsc)
 
+## Example usage
+
+The package can be easily used. An example of usage is
+
+    from tdmsUtils import tdmsConverter as tdmsc
+    tc = tdmsc.tdmsConverter('./ExampleData/')
+    df , total_number_of_channels = tc.convertToDf(debug = False)
+    df_avg = tc.averageFiles(df, debug = False)
+    
+In the ```df``` pandas dataframe you will find all the measurements. An example of how it looks like is
+
+        data	groupName	channelName	filename
+    0	x y 0 0.970000 -2.358...	PD_Signal_0	Avg_Data_20190405 09:28:53.72	./ExampleData/0_cold_next_day.tdms
+    0	x y 0 0.970000 -2.359...	PD_Signal_0	Avg_Data_20190405 09:29:08.93	./ExampleData/0_cold_next_day.tdms
+    0	x y 0 0.970000 -2.359...	PD_Signal_0	Avg_Data_20190405 09:29:24.14	./ExampleData/0_cold_next_day.tdms
+    0	x y 0 0.970000 -2.358...	PD_Signal_0	Avg_Data_20190405 09:29:39.35	./ExampleData/0_cold_next_day.tdms
+    0	x y 0 0.970000 -2.358...	PD_Signal_0	Avg_Data_20190405 09:29:54.56	./ExampleData/0_cold_next_day.tdms
+
+
+
 ## Documentation as of 7.4.2019 20:58
 
 Help on module tdmsUtils.tdmsConverter in tdmsUtils:
