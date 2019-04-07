@@ -19,14 +19,25 @@ The package can be easily used. An example of usage is
     
 In the ```df``` pandas dataframe you will find all the measurements. An example of how it looks like is
 
-        data	groupName	channelName	filename
+        data                     	groupName	channelName	                    filename
     0	x y 0 0.970000 -2.358...	PD_Signal_0	Avg_Data_20190405 09:28:53.72	./ExampleData/0_cold_next_day.tdms
     0	x y 0 0.970000 -2.359...	PD_Signal_0	Avg_Data_20190405 09:29:08.93	./ExampleData/0_cold_next_day.tdms
     0	x y 0 0.970000 -2.359...	PD_Signal_0	Avg_Data_20190405 09:29:24.14	./ExampleData/0_cold_next_day.tdms
     0	x y 0 0.970000 -2.358...	PD_Signal_0	Avg_Data_20190405 09:29:39.35	./ExampleData/0_cold_next_day.tdms
     0	x y 0 0.970000 -2.358...	PD_Signal_0	Avg_Data_20190405 09:29:54.56	./ExampleData/0_cold_next_day.tdms
 
+For example to extract the x and y from the first channel (record in the dataframe) you could do something like this
+    
+    x = df.iloc[0]['data']['x']
+    y = df.iloc[i]['average']['y']
 
+or if you want to plot the average of all channels for each file you can do the following
+
+    for i in range(0, df_avg.shape[1]):
+        plt.plot(df_avg.iloc[i]['average']['x'], df_avg.iloc[i]['average']['y'], 
+                 label = df_avg.iloc[i]['filename'])
+    plt.legend()
+    plt.show()
 
 ## Documentation as of 7.4.2019 20:58
 
