@@ -12,12 +12,12 @@ import os
 #####################################################
 
 
-class tdmsConverter:
+class TDMSConverter:
     def __init__(self, path):
         '''Constructor for the converter'''
         self.path = path
 
-    def generateFileList(self, debug = False):
+    def generate_file_list(self, debug = False):
         '''Returns the list of file in the folder given as input
         as a list.
 
@@ -35,7 +35,7 @@ class tdmsConverter:
 
         return data_files
 
-    def getChannelName(self, channelName):
+    def get_channel_name(self, channelName):
         '''This is a helper function that from the output of the
         tdms package for the channel name like
 
@@ -64,7 +64,7 @@ class tdmsConverter:
         s = s.split("/")
         return s[2]
 
-    def convertToDf(self, debug = False):
+    def convert_to_df(self, debug = False):
         '''This function convert the content of the Files
         into a list. Each element of the list is a pandas
         dataframe with two columns: x,y.
@@ -74,7 +74,7 @@ class tdmsConverter:
         True then debug informations are printed.
         data_files: a list with the list of the file names.
         Typically this is the value returned by the function
-        generateFileList().
+        generate_file_list().
 
         Return Value:
         1. A pandas dataframe with 3 columns:
@@ -103,7 +103,7 @@ class tdmsConverter:
             for group in tdms_file.groups():
                 if (str(group) != 'Reference'):
                     for channel in tdms_file.group_channels(group):
-                        channelName = tdmsConverter.getChannelName(self, channel)
+                        channelName = TDMSConverter.get_channel_name(self, channel)
                         if (debug):
                             print(">>>", str(group), '--', channelName)
                         s2=pd.Series(tdms_file.object(str(group), channelName).data)
@@ -119,12 +119,12 @@ class tdmsConverter:
 
         return df, df.shape[0]
 
-    def averageFiles(self, df, debug = False):
+    def average_files(self, df, debug = False):
         '''This function evaluate the average of all channels for all files.
 
         Input parameters:
         df: dataframe with all the files as obtained by the function
-        convertToDf() in this package.
+        convert_to_df() in this package.
 
         Return Values:
         A DataFrame that contains as many records as number of files. The

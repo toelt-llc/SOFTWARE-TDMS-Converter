@@ -1,1 +1,1 @@
-from tdmsUtils import tdmsConverter
+from TDMSUtils import TDMSConverter

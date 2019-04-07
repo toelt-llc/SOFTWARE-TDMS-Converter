@@ -14,8 +14,8 @@ The package can be easily used. An example of usage is
 
     from tdmsUtils import tdmsConverter as tdmsc
     tc = tdmsc.tdmsConverter('./ExampleData/')
-    df , total_number_of_channels = tc.convertToDf(debug = False)
-    df_avg = tc.averageFiles(df, debug = False)
+    df , total_number_of_channels = tc.convert_to_df(debug = False)
+    df_avg = tc.average_files(df, debug = False)
     
 In the ```df``` pandas dataframe you will find all the measurements. An example of how it looks like is
 
@@ -58,12 +58,12 @@ CLASSES
      |  __init__(self, path)
      |      Constructor for the converter
      |  
-     |  averageFiles(self, df, debug=False)
+     |  average_files(self, df, debug=False)
      |      This function evaluate the average of all channels for all files.
      |      
      |      Input parameters:
      |      df: dataframe with all the files as obtained by the function
-     |      convertToDf() in this package.
+     |      convert_to_df() in this package.
      |      
      |      Return Values:
      |      A DataFrame that contains as many records as number of files. The
@@ -71,7 +71,7 @@ CLASSES
      |      of the file with the path, and 'average' that contains a pandas
      |      dataframe with two columns 'x' and 'y'.
      |  
-     |  convertToDf(self, debug=False)
+     |  convert_to_df(self, debug=False)
      |      This function convert the content of the Files
      |      into a list. Each element of the list is a pandas
      |      dataframe with two columns: x,y.
@@ -81,14 +81,14 @@ CLASSES
      |      True then debug informations are printed.
      |      data_files: a list with the list of the file names.
      |      Typically this is the value returned by the function
-     |      generateFileList().
+     |      generate_file_list().
      |      
      |      Return Value:
      |      1. A pandas dataframe with 3 columns:
      |          'data', 'groupName', and 'channelName'.
      |      2. the number of channels as integer.
      |  
-     |  generateFileList(self, debug=False)
+     |  generate_file_list(self, debug=False)
      |      Returns the list of file in the folder given as input
      |      as a list.
      |      
@@ -98,7 +98,7 @@ CLASSES
      |      debug: a boolean variable (can be True or False). If False then
      |      no output is printed. If True then the list of files is printed.$
      |  
-     |  getChannelName(self, channelName)
+     |  get_channel_name(self, channelName)
      |      This is a helper function that from the output of the
      |      tdms package for the channel name like
      |      
