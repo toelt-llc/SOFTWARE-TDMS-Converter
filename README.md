@@ -5,15 +5,16 @@ This repository contains the code for a package that converts TDMS files into pa
 
 You can always get the up-to-date documentation with
 
-    from tdmsUtils import tdmsConverter as tdmsc
+    from TDMSUtils import TDMSConverter as tdmsc
     help(tdmsc)
 
 ## Example usage
 
 The package can be easily used. An example of usage is
 
-    from tdmsUtils import tdmsConverter as tdmsc
-    tc = tdmsc.tdmsConverter('./ExampleData/')
+    from TDMSUtils import TDMSConverter as tdmsc
+
+    tc = tdmsc.TDMSConverter('./ExampleData/')
     df , total_number_of_channels = tc.convert_to_df(debug = False)
     df_avg = tc.average_files(df, debug = False)
     
@@ -43,15 +44,17 @@ or if you want to plot the average of all channels for each file you can do the 
 
 Help on module tdmsUtils.tdmsConverter in tdmsUtils:
 
+Help on module TDMSUtils.TDMSConverter in TDMSUtils:
+
 NAME
-    tdmsUtils.tdmsConverter
+    TDMSUtils.TDMSConverter
 
 CLASSES
     builtins.object
-        tdmsConverter
+        TDMSConverter
     
-    class tdmsConverter(builtins.object)
-     |  tdmsConverter(path)
+    class TDMSConverter(builtins.object)
+     |  TDMSConverter(path)
      |  
      |  Methods defined here:
      |  
