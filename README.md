@@ -42,8 +42,6 @@ or if you want to plot the average of all channels for each file you can do the 
 
 ## Documentation as of 7.4.2019 20:58
 
-Help on module tdmsUtils.tdmsConverter in tdmsUtils:
-
 Help on module TDMSUtils.TDMSConverter in TDMSUtils:
 
 NAME
