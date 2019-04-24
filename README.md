@@ -1,4 +1,11 @@
-# TDMS-Converter
+# TDMS Converter Package
+
+[![license MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![](https://img.shields.io/github/commits-since/toelt-llc/TDMS-Converter/v1.0.svg)
+![](https://img.shields.io/github/last-commit/toelt-llc/TDMS-Converter.svg)
+![](https://img.shields.io/github/repo-size/toelt-llc/TDMS-Converter.svg)
+![](https://img.shields.io/github/issues/toelt-llc/TDMS-Converter.svg)
+
 This repository contains the code for a package that converts TDMS files into pandas data frame for easy usage. 
 
 ## Help
